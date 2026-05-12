@@ -6,6 +6,7 @@
 <title>Discover Icherisheher — A soul in every stone. An experience at every step.</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  img { max-width: 100%; height: auto; vertical-align: middle; }
   :root {
     /* Mobile app palette (preserved) */
     --primary: #8B6F47;
@@ -1028,7 +1029,17 @@
     overflow: hidden;
     box-shadow: var(--shadow-md);
     position: relative;
-    background: #ddd;
+    background: linear-gradient(135deg, #C9A86A 0%, #8B6F47 60%, #6B5840 100%);
+  }
+  .about-carousel::after {
+    content: '🏛️';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    opacity: 0.25;
+    z-index: 0;
+    pointer-events: none;
   }
   .about-carousel-track { position: relative; width: 100%; height: 100%; }
   .about-carousel-img {
@@ -1233,15 +1244,26 @@
     cursor: pointer;
     border: 1px solid var(--border);
     transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
   }
   .place-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
   .place-card .img-wrap {
-    aspect-ratio: 4/3;
+    width: 100%;
+    height: 220px;
+    min-height: 220px;
+    max-height: 220px;
+    aspect-ratio: auto;
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #C9A86A 0%, #8B6F47 60%, #6B5840 100%);
+    flex-shrink: 0;
   }
-  .place-card .img-wrap.tall { aspect-ratio: 3/4; }
+  .place-card .img-wrap.tall {
+    height: 320px;
+    min-height: 320px;
+    max-height: 320px;
+  }
   .place-card .img-wrap::before {
     content: '';
     position: absolute;
@@ -1252,23 +1274,30 @@
     pointer-events: none;
     z-index: 1;
   }
-  .place-card img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s;
-    position: relative;
-    z-index: 2;
-  }
-  .place-card img[src=""], .place-card img:not([src]) { display: none; }
   .place-card .img-wrap::after {
     content: '🏛️';
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     font-size: 48px;
-    opacity: 0.4;
+    opacity: 0.35;
     z-index: 1;
+    pointer-events: none;
   }
+  .place-card img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s;
+    z-index: 2;
+    display: block;
+  }
+  .place-card img[src=""], .place-card img:not([src]) { display: none; }
   .place-card:hover img { transform: scale(1.05); }
   .place-card .heart {
     position: absolute;
@@ -1372,7 +1401,18 @@
     margin-top: 10px;
   }
   .place-card .buy-btn:hover { background: var(--primary-dark); }
-  .museum-card { min-width: 280px; flex-shrink: 0; scroll-snap-align: start; }
+  .museum-card {
+    min-width: 280px;
+    max-width: 320px;
+    width: 280px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+  .museum-card .img-wrap {
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+  }
 
   /* ================ LISTING GRID ================ */
   .listing-grid {
