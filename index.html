@@ -477,15 +477,26 @@
   .hero {
     position: relative;
     min-height: 540px;
-    background-image:
-      linear-gradient(180deg, rgba(20,15,10,0.30) 0%, rgba(20,15,10,0.75) 100%),
-      url('images/shirvanshah_palace.jpg');
-    background-size: cover;
-    background-position: center;
+    background-color: #2a1f15;
     color: #FFF;
     display: flex;
     align-items: center;
     overflow: hidden;
+  }
+  .hero-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20,15,10,0.30) 0%, rgba(20,15,10,0.75) 100%);
+    z-index: 1;
+    pointer-events: none;
   }
   .hero-inner-grid {
     display: block;
@@ -777,6 +788,22 @@
   .hbn-bg-4 {
     background: linear-gradient(135deg, #B5C9A8 0%, #6B8E4E 50%, #3F5B2E 100%);
   }
+  /* Video background for hero slide */
+  .hbn-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .hbn-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(20,15,10,0.75) 0%, rgba(20,15,10,0.55) 50%, rgba(20,15,10,0.35) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
   /* Decorative pattern on top of bg */
   .hbn-slide::after {
     content: '';
@@ -789,7 +816,7 @@
   }
   .hbn-slide-inner {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
   }
   .hbn-content { max-width: 640px; }
@@ -1588,11 +1615,38 @@
   .event-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
   .event-img {
     aspect-ratio: 16/9;
-    background: #ddd;
+    background: linear-gradient(135deg, #C9A86A 0%, #8B6F47 60%, #6B5840 100%);
     overflow: hidden;
     position: relative;
   }
-  .event-img img { width: 100%; height: 100%; object-fit: cover; }
+  .event-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 80% 30%, rgba(255,255,255,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(0,0,0,0.10) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .event-img::after {
+    content: '🎭';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    opacity: 0.35;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .event-img img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+  }
   .event-cat-tag {
     position: absolute;
     top: 14px; left: 14px;
@@ -4264,6 +4318,10 @@
 
   <!-- HERO -->
   <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="images/shirvanshah_palace.jpg">
+      <source src="videos/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
     <div class="container">
       <div class="hero-inner-grid">
         <div class="hero-content">
