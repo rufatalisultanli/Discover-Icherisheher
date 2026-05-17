@@ -4025,6 +4025,84 @@
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+
+  /* ================ RESPONSIVE BREAKPOINTS ================ */
+  /* Tablet & smaller desktop */
+  @media (max-width: 1024px) {
+    .container { padding: 0 20px; }
+    /* Collapse common 4-column grids to 2 columns */
+    .listing-grid,
+    .listing-grid.three,
+    .features-grid,
+    .stats-grid,
+    .stories-grid,
+    .news-grid,
+    .partner-grid,
+    .footer-grid,
+    .tour-grid,
+    .place-grid,
+    .event-grid,
+    .restaurant-grid,
+    .gallery-grid,
+    .ticket-grid,
+    .day-grid,
+    .heritage-grid,
+    .guides-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    /* Split-pane two-column layouts stack */
+    .split-pane,
+    .two-col,
+    .hero-split,
+    .heritage-split { grid-template-columns: 1fr !important; }
+    .header-inner { flex-wrap: wrap; gap: 12px; }
+  }
+  /* Mobile */
+  @media (max-width: 640px) {
+    body { font-size: 14px; }
+    .container { padding: 0 14px; }
+    h1 { font-size: 28px !important; line-height: 1.2; }
+    h2 { font-size: 22px !important; }
+    h3 { font-size: 18px !important; }
+    /* Collapse everything to single column */
+    .listing-grid,
+    .listing-grid.three,
+    .features-grid,
+    .stats-grid,
+    .stories-grid,
+    .news-grid,
+    .partner-grid,
+    .footer-grid,
+    .tour-grid,
+    .place-grid,
+    .event-grid,
+    .restaurant-grid,
+    .gallery-grid,
+    .ticket-grid,
+    .day-grid,
+    .heritage-grid,
+    .guides-grid,
+    .split-pane,
+    .two-col,
+    .hero-split,
+    .heritage-split { grid-template-columns: 1fr !important; }
+    /* Hero, tickers and side panels go full width */
+    .hero, .hero-visual, .hero-content { padding: 24px 0 !important; }
+    .hero-visual-img { max-height: 320px; object-fit: cover; }
+    /* Header: hide nav text, keep brand + burger */
+    nav.primary { display: none; }
+    .app-stores { flex-wrap: wrap; gap: 10px; }
+    .qr-code { display: none; }
+    .topbar { font-size: 11px; padding: 6px 10px; }
+    .btn-hero-primary, .btn-hero-secondary { width: 100%; text-align: center; padding: 12px 16px; }
+    /* Modal padding */
+    .modal-content, .detail-modal-inner { padding: 16px !important; }
+    /* Tables scroll horizontally */
+    table { display: block; overflow-x: auto; }
+    /* Reduce all inline 3/4 col grids on mobile via attribute selector */
+    [style*="repeat(4, 1fr)"],
+    [style*="repeat(3, 1fr)"],
+    [style*="repeat(4,1fr)"],
+    [style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+  }
 </style>
 </head>
 <body>
@@ -5244,11 +5322,11 @@
             <li>📱 QR-tickets, no printing needed</li>
           </ul>
           <div class="app-stores">
-            <a class="app-store-btn" href="https://apps.apple.com/az/app/icherisheher-app/id6749550258" target="_blank">
+            <a class="app-store-btn" href="https://apps.apple.com/az/app/icherisheher-app/id6749550258" target="_blank" rel="noopener noreferrer">
               <span class="icon"></span>
               <div><small>Download on the</small><strong>App Store</strong></div>
             </a>
-            <a class="app-store-btn" href="https://play.google.com/store/apps/details?id=az.gov.icherisheher" target="_blank">
+            <a class="app-store-btn" href="https://play.google.com/store/apps/details?id=az.gov.icherisheher" target="_blank" rel="noopener noreferrer">
               <span class="icon">▶</span>
               <div><small>Get it on</small><strong>Google Play</strong></div>
             </a>
@@ -6177,7 +6255,7 @@
         <div>
           <div class="sec-eyebrow">📍 Location &amp; Route</div>
         </div>
-        <a class="link-arrow" href="#" onclick="event.preventDefault();">Open in Google Maps →</a>
+        <a class="link-arrow" href="https://www.google.com/maps/place/Icheri+Sheher,+Baku,+Azerbaijan/@40.3661,49.8336,16z" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a>
       </div>
       <div class="detail-map-mock">
         <svg viewBox="0 0 800 360" preserveAspectRatio="xMidYMid slice" style="width:100%; height:100%;">
@@ -6462,10 +6540,10 @@
         </div>
         <h5 style="margin-top:24px;">Get the App</h5>
         <div class="app-stores" style="flex-direction:column;align-items:flex-start;">
-          <a class="app-store-btn" href="https://apps.apple.com/az/app/icherisheher-app/id6749550258" target="_blank" style="padding:8px 14px;background:rgba(255,255,255,0.10);">
+          <a class="app-store-btn" href="https://apps.apple.com/az/app/icherisheher-app/id6749550258" target="_blank" rel="noopener noreferrer" style="padding:8px 14px;background:rgba(255,255,255,0.10);">
             <span class="icon"></span><div><small>App Store</small><strong>Download</strong></div>
           </a>
-          <a class="app-store-btn" href="https://play.google.com/store/apps/details?id=az.gov.icherisheher" target="_blank" style="padding:8px 14px;background:rgba(255,255,255,0.10);">
+          <a class="app-store-btn" href="https://play.google.com/store/apps/details?id=az.gov.icherisheher" target="_blank" rel="noopener noreferrer" style="padding:8px 14px;background:rgba(255,255,255,0.10);">
             <span class="icon">▶</span><div><small>Google Play</small><strong>Download</strong></div>
           </a>
         </div>
@@ -7677,6 +7755,103 @@ function mediaMove(dir) {
     });
   });
   observer.observe(document.body, { childList: true, subtree: true });
+})();
+
+/* ================ A11Y: keyboard activation for clickable elements ================ */
+(function () {
+  function makeAccessible(el) {
+    if (el.dataset.a11yReady === '1') return;
+    var tag = el.tagName;
+    // Native button / link with href / form control already keyboard-accessible
+    if (tag === 'BUTTON' || tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') { el.dataset.a11yReady = '1'; return; }
+    if (tag === 'A' && el.getAttribute('href') && el.getAttribute('href') !== '#') { el.dataset.a11yReady = '1'; return; }
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+    if (!el.hasAttribute('role')) el.setAttribute('role', 'button');
+    el.dataset.a11yReady = '1';
+  }
+  function enhanceAll() {
+    document.querySelectorAll('[onclick]').forEach(makeAccessible);
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var t = e.target;
+    if (!t || !t.hasAttribute || !t.hasAttribute('onclick')) return;
+    var tag = t.tagName;
+    if (tag === 'BUTTON' || tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+    if (tag === 'A' && t.getAttribute('href') && t.getAttribute('href') !== '#') return;
+    e.preventDefault();
+    t.click();
+  });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', enhanceAll);
+  } else {
+    enhanceAll();
+  }
+  // Re-scan on DOM mutations so dynamically rendered cards stay accessible
+  var a11yObserver = new MutationObserver(function () { enhanceAll(); });
+  a11yObserver.observe(document.body, { childList: true, subtree: true });
+})();
+
+/* ================ A11Y: favorite/heart buttons (aria-pressed) ================ */
+(function () {
+  function syncPressed(el) {
+    if (!el.classList.contains('heart-btn') && !el.classList.contains('fav-btn') && !/heart|favorite|fav/i.test(el.className)) return;
+    el.setAttribute('aria-pressed', el.classList.contains('active') ? 'true' : 'false');
+    if (!el.hasAttribute('aria-label')) el.setAttribute('aria-label', 'Add to favorites');
+  }
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[onclick*="classList.toggle(\'active\')"]');
+    if (!el) return;
+    // Wait for the inline handler to flip the class
+    setTimeout(function () { syncPressed(el); }, 0);
+  });
+  function init() {
+    document.querySelectorAll('[onclick*="classList.toggle(\'active\')"]').forEach(syncPressed);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+/* ================ A11Y: modal dialog role + focus management ================ */
+(function () {
+  var modal = document.getElementById('detailModal') || document.querySelector('.detail-modal, .modal');
+  if (!modal) return;
+  if (!modal.hasAttribute('role')) modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  if (!modal.hasAttribute('aria-label')) modal.setAttribute('aria-label', 'Details');
+  var lastFocus = null;
+  function focusableIn(root) {
+    return root.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+  }
+  // Detect open state by class or inline display
+  function isOpen() {
+    var st = window.getComputedStyle(modal);
+    return st.display !== 'none' && st.visibility !== 'hidden' && modal.classList.contains('active') || modal.classList.contains('open') || modal.classList.contains('show');
+  }
+  var openObserver = new MutationObserver(function () {
+    var open = modal.classList.contains('active') || modal.classList.contains('open') || modal.classList.contains('show') || (modal.style.display && modal.style.display !== 'none');
+    if (open) {
+      lastFocus = document.activeElement;
+      var first = focusableIn(modal)[0];
+      if (first) try { first.focus(); } catch (e) {}
+    } else if (lastFocus) {
+      try { lastFocus.focus(); } catch (e) {}
+      lastFocus = null;
+    }
+  });
+  openObserver.observe(modal, { attributes: true, attributeFilter: ['class', 'style'] });
+  // Focus trap
+  modal.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    var f = focusableIn(modal);
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
 })();
 </script>
 
